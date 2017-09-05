@@ -61,10 +61,13 @@ def workdays_per_month(start_date, end_date, holidays=[]):
     year_month_slices['d'] = slice.slice_year_month(start_date, end_date)
     work_days = 28
 
-    print(type(year_month_slices))
     print((year_month_slices['d'][0]['2017_8']))
     print((year_month_slices['d'][0]['2017_8']['August']))
     print((year_month_slices['d'][0]['2017_8']['August']['num_days']))
+    year_month_slices['d'][0]['2017_8']['August']['working_days'] = 10
+
+    print((year_month_slices['d'][0]['2017_8']['August']))
+
 
     ctx = 0
 
@@ -95,4 +98,4 @@ def get_workdays_by_country(start_date, end_date):
     # build dictionary {country: {year_month : number of workdays}}
 
 
-print(workdays_per_month(date(2017, 8, 30), date(2018, 9, 10)))
+print(workdays_per_month(date(2017, 8, 15), date(2018, 9, 10)))
