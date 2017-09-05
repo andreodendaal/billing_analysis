@@ -1,5 +1,7 @@
 from datetime import timedelta
 from datetime import date
+import calendar
+import slice_year_month as slice
 
 (MON, TUE, WED, THU, FRI, SAT, SUN) = range(7)
 
@@ -51,15 +53,32 @@ def workdays_per_month(start_date, end_date, holidays=[]):
      Calculate the number of working days per month per country
      
     '''
-    start_year = date(start_date).year
-    end_year = date(end_date).year
 
-    # while the month is the same
+    # slice date range into dictionary of year and months
+
+    year_month_slices = {}
+
+    year_month_slices['d'] = slice.slice_year_month(start_date, end_date)
+    work_days = 28
+
+    print(type(year_month_slices))
+    print((year_month_slices['d'][0]['2017_8']))
+    print((year_month_slices['d'][0]['2017_8']['August']))
+    print((year_month_slices['d'][0]['2017_8']['August']['num_days']))
+
+    ctx = 0
 
 
 
 
-    # slice date range into year and months
+
+
+
+    # add working days to dataset
+
+
+
+    return
 
 
     # get working days per year month
@@ -76,3 +95,4 @@ def get_workdays_by_country(start_date, end_date):
     # build dictionary {country: {year_month : number of workdays}}
 
 
+print(workdays_per_month(date(2017, 8, 30), date(2018, 9, 10)))
